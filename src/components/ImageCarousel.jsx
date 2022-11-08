@@ -23,21 +23,21 @@ export const ImageCarousel = () => {
 
 
   return (
-    <Carousel>
+    <Carousel className="my-5">
       <Carousel.Item>
-          <img alt="models" src={roboCop3} className="d-block"/>
+          <img alt="models" src={roboCop3} className="d-block m-auto"/>
       </Carousel.Item>
       <Carousel.Item>
-          <img alt="models" src={lostShark} className="d-block" />
+          <img alt="models" src={lostShark} className="d-block m-auto" />
       </Carousel.Item>
       <Carousel.Item>
-          <img alt="models" src={sharkExorcist} className="d-block" />
+          <img alt="models" src={sharkExorcist} className="d-block m-auto" />
       </Carousel.Item>
         <Carousel.Item>
-            <img alt="models" src={toxicShark} className="d-block" />
+            <img alt="models" src={toxicShark} className="d-block m-auto" />
         </Carousel.Item>
         <Carousel.Item>
-            <img alt="models" src={noahsShark} className="d-block" />
+            <img alt="models" src={noahsShark} className="d-block m-auto" />
         </Carousel.Item>
     </Carousel>
   );
