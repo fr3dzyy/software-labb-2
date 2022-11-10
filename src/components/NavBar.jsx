@@ -22,13 +22,13 @@ function NavBar() {
 
 
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar className="navbar navbar-dark bg-dark" expand="lg" style={{ padding: 0 }}>
 
             <Container fluid>
 
                 <Navbar.Toggle aria-controls="navbarScroll" className="p-0 px-2"/>
                 <img alt="logo" src={sharkLogo} />
-                <Navbar.Brand href="#">SharkMovies</Navbar.Brand>
+                <Navbar.Brand href="#" style={{color: '#CCC9C3'}}>SharkMovies</Navbar.Brand>
 
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
