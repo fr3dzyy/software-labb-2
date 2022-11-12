@@ -2,30 +2,28 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "react-bootstrap/Card";
 
-type apiProps = {
-  json?: any;
+type listProps = {
+  poster_path: string;
   title: string;
-  item?: object;
-  poster_path: object;
-  src: string;
+  item: object;
   category: string;
 };
 
-export const Api = (props: apiProps) => {
-  const [content, setContent] = useState<apiProps[]>([]);
+export const GetLists = (props: listProps) => {
+  const [listContent, setListContent] = useState<listProps[]>([]);
   useEffect(() => {
     axios
       .get(
-        `${process.env.REACT_APP_API_URL}${props.category}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
+        `${process.env.REACT_APP_API_URL_LISTS}${props.category}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
       )
       .then((response) => {
-        setContent(response.data.results);
+        setListContent(response.data.items);
       });
   }, [props.category]);
 
   return (
     <>
-      {content.map((item) => (
+      {listContent.map((item) => (
         <Card
           style={{ width: "8rem", height: "12rem", backgroundColor: "#131516" }}
         >

@@ -1,36 +1,36 @@
-import LogRocket from 'logrocket'
-import styled from 'styled-components'
-import { useCookies } from 'react-cookie'
+import LogRocket from "logrocket";
+import styled from "styled-components";
+import { useCookies } from "react-cookie";
 
-import { ImageCarousel } from './components/ImageCarousel'
-import { Header } from './components/Header'
-import { Footer } from './components/Footer'
-import MovieSection from './components/MovieSection'
-import { useEffect, useState } from 'react'
+import { ImageCarousel } from "./components/ImageCarousel";
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
+import MovieSection from "./components/MovieSection";
+import { useEffect, useState } from "react";
 
-LogRocket.init('znathy/mango-tree')
+LogRocket.init("znathy/mango-tree");
 
 function App() {
-  const [cookies, setCookie] = useCookies(['name'])
-  const [display, setDisplay] = useState(false)
+  const [cookies, setCookie] = useCookies(["name"]);
+  const [display, setDisplay] = useState(false);
 
   useEffect(() => {
     if (!cookies.name) {
-      setDisplay(true)
+      setDisplay(true);
     }
-  }, [cookies])
+  }, [cookies]);
 
   function acceptCookie() {
-    let expireDate = new Date()
-    expireDate.setTime(expireDate.getTime() + 1 * 3600 * 1000)
+    let expireDate = new Date();
+    expireDate.setTime(expireDate.getTime() + 1 * 3600 * 1000);
 
-    setCookie('name', 'cookie-from-hell', {
+    setCookie("name", "cookie-from-hell", {
       expires: expireDate,
       httpOnly: false,
-      path: '/',
+      path: "/",
       secure: true,
-    })
-    setDisplay(false)
+    });
+    setDisplay(false);
   }
 
   return (
@@ -39,7 +39,7 @@ function App() {
       {display && (
         <CookieDiv>
           <CookieMessage>
-            Allow the use of cookies from SharkMovies on this browser?
+            Allow the use of cookies from SharkMovies in this browser?
           </CookieMessage>
           <DeclineBtn onClick={(e) => setDisplay(false)}>Decline</DeclineBtn>
           <AcceptBtn onClick={acceptCookie}>Allow cookies</AcceptBtn>
@@ -49,12 +49,12 @@ function App() {
       <MovieSection />
       <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
 
-const AcceptBtn = styled.button``
+const AcceptBtn = styled.button``;
 
 const CookieDiv = styled.div`
   border: 1px solid grey;
@@ -69,13 +69,13 @@ const CookieDiv = styled.div`
     margin-left: 30%;
     width: 40%;
   }
-`
+`;
 
 const CookieMessage = styled.h3`
   margin-bottom: 20px;
   padding: 5px 10px 0 10px;
-`
+`;
 
 const DeclineBtn = styled.button`
   margin-right: 25px;
-`
+`;
