@@ -1,15 +1,22 @@
 import styled from 'styled-components'
 
+import {Api} from "./Api";
+
+
 export default function MovieSection() {
   return (
     <>
     <MovieDiv primary>
-      <MovieTitle>Lorem ipsum</MovieTitle>
-      <Paragraph>Lorem ipsum</Paragraph>
+      <MovieTitle>Popular now</MovieTitle>
+      <CardDiv>
+        <Api category="popular"/>
+      </CardDiv>
     </MovieDiv>
     <MovieDiv >
-      <MovieTitle>Lorem </MovieTitle>
-      <Paragraph>Lorem ipsum</Paragraph>
+      <MovieTitle>Upcoming</MovieTitle>
+      <CardDiv>
+        <Api category="upcoming"/>
+      </CardDiv>
     </MovieDiv>
     </>
   )
@@ -21,7 +28,7 @@ display: flex;
 flex-direction: column;
 height: 150px;
 justify-content: space-evenly;
-margin: 25px 0 25px ;
+margin: 125px 0 25px ;
 text-align: center;
 `
 
@@ -32,3 +39,10 @@ background: black;
 
 const Paragraph = styled.p`
 `
+
+const CardDiv = styled.div`
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  
+      `

@@ -23,7 +23,7 @@ export const ImageCarousel = () => {
 
 
   return (
-    <Carousel className="my-5">
+    <Carousel indicators={false} className="my-5">
       <Carousel.Item>
           <img alt="models" src={roboCop3} className="d-block m-auto"/>
       </Carousel.Item>
