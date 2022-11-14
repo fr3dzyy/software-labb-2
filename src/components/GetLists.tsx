@@ -7,6 +7,7 @@ type listProps = {
   title: string;
   item: object;
   category: string;
+  id: number;
 };
 
 export const GetLists = (props: listProps) => {
@@ -25,15 +26,15 @@ export const GetLists = (props: listProps) => {
     <>
       {listContent.map((item) => (
         <Card
-          style={{ width: "8rem", height: "12rem", backgroundColor: "#131516" }}
+          key={item.id}
+          style={{ width: 350, height: 350, backgroundColor: "#131516" }}
         >
           <Card.Img
             variant="top"
             src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
-            style={{ width: 80, height: 100, alignSelf: "center" }}
           />
           <Card.Body>
-            <Card.Title style={{ fontSize: "14px" }}>{item.title}</Card.Title>
+            <Card.Title>{item.title}</Card.Title>
           </Card.Body>
         </Card>
       ))}
