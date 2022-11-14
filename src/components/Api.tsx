@@ -9,6 +9,7 @@ type apiProps = {
   poster_path: object;
   src: string;
   category: string;
+  id: number
 };
 
 export const Api = (props: apiProps) => {
@@ -27,6 +28,10 @@ export const Api = (props: apiProps) => {
 
   return (
     <>
+      {content.map((item) => (
+        <Card key={item.id}
+          style={{ width: "8rem", height: "12rem", backgroundColor: "#131516" }}
+
       {selectedMovies.map((item) => (
         <Card
           style={{ width: 350, height: 350, backgroundColor: "#131516" }}

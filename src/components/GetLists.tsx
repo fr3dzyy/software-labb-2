@@ -7,6 +7,7 @@ type listProps = {
   title: string;
   item: object;
   category: string;
+  id: number
 };
 
 export const GetLists = (props: listProps) => {
@@ -24,6 +25,10 @@ export const GetLists = (props: listProps) => {
   return (
     <>
       {listContent.map((item) => (
+ 
+        <Card key={item.id}
+          style={{ width: "8rem", height: "12rem", backgroundColor: "#131516" }}
+
         <Card
           style={{ width: 350, height: 350, backgroundColor: "#131516" }}
         >
