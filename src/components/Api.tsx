@@ -14,7 +14,7 @@ type apiProps = {
 
 export const Api = (props: apiProps) => {
   const [content, setContent] = useState<apiProps[]>([]);
-  const selectedMovies = content.slice(1,6)
+
 
   useEffect(() => {
     axios
@@ -28,14 +28,9 @@ export const Api = (props: apiProps) => {
 
   return (
     <>
-      {content.map((item) => (
+      {content.slice(1,6).map((item) => (
         <Card key={item.id}
-          style={{ width: "8rem", height: "12rem", backgroundColor: "#131516" }}
-
-      {selectedMovies.map((item) => (
-        <Card
-          style={{ width: 350, height: 350, backgroundColor: "#131516" }}
-        >
+          style={{ width: 350, height: 350, backgroundColor: "#131516" }}>
           <Card.Img
             variant="top"
             src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
