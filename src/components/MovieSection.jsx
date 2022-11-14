@@ -5,7 +5,7 @@ import { GetLists } from "./GetLists";
 export default function MovieSection() {
   return (
     <>
-      <MovieDiv primary>
+      <MovieDiv>
         <MovieTitle>Popular now</MovieTitle>
         <CardDiv>
           <Api category="popular" />
@@ -34,22 +34,31 @@ export default function MovieSection() {
 }
 
 const MovieDiv = styled.div`
-  background: ${(props) => (props.primary ? "#000" : "#131516")};
   display: flex;
   flex-direction: column;
-  height: 150px;
+  height: auto;
   justify-content: space-evenly;
-  margin: 125px 0 25px;
+  margin: 80px 10% 100px;
   text-align: center;
+
+  @media (max-width: 1440px) {
+    margin: 20px 10% 20px;
+  }
 `;
 
 const MovieTitle = styled.h3`
-  color: #278798;
   background: black;
+  color: #278798;
+  font-size: 50px;
 `;
 
 const CardDiv = styled.div`
-  margin-top: 10px;
   display: flex;
   justify-content: center;
+  margin-bottom: 100px;
+  padding-top: 25px;
+
+  @media (max-width: 1024px) {
+    margin-bottom: 0;
+  }
 `;
