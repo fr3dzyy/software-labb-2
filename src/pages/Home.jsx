@@ -4,11 +4,9 @@ import MovieSection from "../components/MovieSection";
 import {Footer} from "../components/Footer";
 import {useCookies} from "react-cookie";
 import {useEffect, useState} from "react";
+
 import styled from "styled-components";
 import LogRocket from "logrocket";
-
-
-LogRocket.init("znathy/mango-tree");
 
 
 export const Home = () => {
@@ -22,6 +20,8 @@ export const Home = () => {
     }, [cookies]);
 
     function acceptCookie() {
+      LogRocket.init("znathy/mango-tree");
+
         let expireDate = new Date();
         expireDate.setTime(expireDate.getTime() + 1 * 3600 * 1000);
 
@@ -40,6 +40,13 @@ export const Home = () => {
         <CookieDiv>
             <CookieMessage>
                 Allow the use of cookies from SharkMovies in this browser?
+                <CookieMsgSmall>
+              We collect cookies to deliver better user experience! Lorem ipsum
+              dolor sit, amet consectetur adipisicing elit. Deleniti minima nam
+              molestias, quisquam quos sit suscipit ipsum quidem, porro libero
+              veniam. Ipsam cupiditate exercitationem ex fugiat, est error dolor
+              delectus!
+            </CookieMsgSmall>
             </CookieMessage>
             <DeclineBtn onClick={(e) => setDisplay(false)}>Decline</DeclineBtn>
             <AcceptBtn onClick={acceptCookie}>Allow cookies</AcceptBtn>
@@ -52,7 +59,16 @@ export const Home = () => {
     )
 }
 
-const AcceptBtn = styled.button``;
+const AcceptBtn = styled.button`
+  :hover {
+    font-weight: bold;
+  }
+`;
+
+const CookieMsgSmall = styled.p`
+  font-size: 15px;
+  margin: 15px 25px 0;
+`;
 
 const CookieDiv = styled.div`
   border: 1px solid grey;
@@ -76,4 +92,8 @@ const CookieMessage = styled.h3`
 
 const DeclineBtn = styled.button`
   margin-right: 25px;
+
+  :hover {
+    font-weight: bold;
+  }
 `;
